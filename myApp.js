@@ -4,6 +4,12 @@ require('dotenv').config()
 
 console.log("Hello World");
 
+app.use((req,res,next) => {
+    var string = req.method + " " + req.path + " - " + req.ip;
+    console.log(string);
+    next();
+})
+
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -22,4 +28,6 @@ app.get("/json", (req,res)=> {
         })
     }
 })
+
+
 module.exports = app;   
