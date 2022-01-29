@@ -49,4 +49,11 @@ app.get("/:word/echo", (req,res,next) => {
         "echo":word
     })
 })
+
+app.get("/name", (req,res)=>{
+    var {first:firstname, last:lastname} = req.query
+    res.json({
+        "name":`${firstname} ${lastname}`
+    })
+})
 module.exports = app;   
