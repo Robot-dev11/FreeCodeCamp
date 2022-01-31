@@ -61,4 +61,10 @@ app.get("/name", (req,res)=>{
         "name":`${firstname} ${lastname}`
     })
 })
+
+app.post("/name", function(req, res) {
+    var string = req.body.first + " " + req.body.last;
+    res.json({ name: string });
+  });
+
 module.exports = app;   
