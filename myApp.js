@@ -1,8 +1,13 @@
 var express = require('express');
 var app = express();
 require('dotenv').config()
+var bodyParser = require('body-parser')
 
 console.log("Hello World");
+
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //use of next function with the middleware function
 app.use((req,res,next) => {
